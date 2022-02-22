@@ -1,28 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-
-<!-- molla/product.html  22 Nov 2019 09:54:50 GMT -->
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Molla - Bootstrap eCommerce Template</title>
-    <meta name="keywords" content="HTML5 Template">
-    <meta name="description" content="Molla - Bootstrap eCommerce Template">
-    <meta name="author" content="p-themes">
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/favicon-16x16.png">
-    <link rel="manifest" href="../assets/images/icons/site.html">
-    <link rel="mask-icon" href="../assets/images/icons/safari-pinned-tab.svg" color="#666666">
-    <link rel="shortcut icon" href="../assets/images/icons/favicon.ico">
-    <meta name="apple-mobile-web-app-title" content="Molla">
-    <meta name="application-name" content="Molla">
-    <meta name="msapplication-TileColor" content="#cc9966">
-    <meta name="msapplication-config" content="../assets/images/icons/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
+@include('favicon')
     <!-- Plugins CSS File -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/plugins/owl-carousel/owl.carousel.css">
@@ -64,10 +40,10 @@
                     <nav class="main-nav">
                         <ul class="menu sf-arrows">
                             <li class="megamenu-container active">
-                                <a href="/" class="sf-with-ul">Home</a>
+                                <a href="../" class="sf-with-ul">Home</a>
                             </li>
                             <li>
-                                <a href="/" class="sf-with-ul">Produtos</a>
+                                <a  class="sf-with-ul">Produtos</a>
                             </li>
                         </ul><!-- End .menu -->
                     </nav><!-- End .main-nav -->
@@ -75,43 +51,20 @@
 
                 <div class="header-right">
                     <div class="header-search">
-                        <a href="#" class="search-toggle" role="button" title="Search"><i class="icon-search"></i></a>
-                        <form action="#" method="get">
-                            <div class="header-search-wrapper">
-                                <label for="q" class="sr-only">Search</label>
-                                <input type="search" class="form-control" name="q" id="q" placeholder="Search in..." required>
-                            </div><!-- End .header-search-wrapper -->
-                        </form>
+
                     </div><!-- End .header-search -->
                     <div class="dropdown compare-dropdown">
-                        <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" title="Compare Products" aria-label="Compare Products">
-                            <i class="icon-random"></i>
-                        </a>
+
 
                         <div class="dropdown-menu dropdown-menu-right">
-                            <ul class="compare-products">
-                                <li class="compare-product">
-                                    <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                    <h4 class="compare-product-title"><a href="product.html">Blue Night Dress</a></h4>
-                                </li>
-                                <li class="compare-product">
-                                    <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                    <h4 class="compare-product-title"><a href="product.html">White Long Skirt</a></h4>
-                                </li>
-                            </ul>
 
-                            <div class="compare-actions">
-                                <a href="#" class="action-link">Clear All</a>
-                                <a href="#" class="btn btn-outline-primary-2"><span>Compare</span><i class="icon-long-arrow-right"></i></a>
-                            </div>
+
+
                         </div><!-- End .dropdown-menu -->
                     </div><!-- End .compare-dropdown -->
 
                     <div class="dropdown cart-dropdown">
-                        <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-                            <i class="icon-shopping-cart"></i>
-                            <span class="cart-count">2</span>
-                        </a>
+
 
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="dropdown-cart-products">
@@ -177,9 +130,9 @@
         <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
             <div class="container d-flex align-items-center">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Products</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Default</li>
+                    <li class="breadcrumb-item"><a href="../">Home</a></li>
+                    <li class="breadcrumb-item"><a >Produtos</a></li>
+
                 </ol>
 
 
@@ -232,7 +185,7 @@
                                 <h4 style="position: absolute;margin-top: -1.5%;">0</h4>
                                     <h4 style="margin-left: 88%;margin-top: -1.5%;position: absolute;">{{$dado->quantidade}}</h4>
                                 <div style="width: 82%;margin-left: 6%;" class="progress">
-                                   <div  class="progress-bar" role="progressbar" style="width: 75%; background-color: #c96" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                   <div  class="progress-bar" role="progressbar" style="width: 75%; background-color: #16C49F" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
 
                                 </div>
@@ -242,7 +195,7 @@
                                     <h1 class="product-title">Preço da Cotação:<div style="display: inline !important;padding-left: 10px !important;" class="product-price">R$ 150</div> </h1>
                                 </div><!-- End .product-price -->
                                 <br>
-                                <a style="margin-left: 16%;width: 71%;" class="btn btn-primary">Adquirir Coperação</a>
+                                <a href="../../checkout/1" style="margin-left: 16%;width: 71%;" class="btn btn-primary">Adquirir Coperação</a>
 
 
 
@@ -251,7 +204,7 @@
                     </div><!-- End .row -->
                 </div><!-- End .product-details-top -->
 
-
+@break($dado)
                 @endforeach
 
 

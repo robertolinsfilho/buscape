@@ -137,7 +137,9 @@
                                         {{$pesquisa->preco}}
                                     </div><!-- End .product-price -->
 
-
+                                    <div style="width: 82%;margin-left: 6%;" class="progress">
+                                        <div  class="progress-bar" role="progressbar" style="width: 75%; background-color: #16C49F" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
 
                                 </div><!-- End .product-body -->
                             </div><!-- End .product -->

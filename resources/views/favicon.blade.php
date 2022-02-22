@@ -16,7 +16,7 @@
 <link rel="shortcut icon" href="../imagens/favicon32.ico">
 <meta name="apple-mobile-web-app-title" content="Molla">
 <meta name="application-name" content="Molla">
-<meta name="msapplication-TileColor" content="#cc9966">
+<meta name="msapplication-TileColor" content="#16C49F">
 <meta name="msapplication-config" content="assets/images/icons/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
 <link rel="stylesheet" href="../css/app.css">

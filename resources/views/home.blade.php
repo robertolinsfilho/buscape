@@ -126,55 +126,55 @@
             <div class="cat-blocks-container">
                 <div class="row">
                     <div class="col-6 col-sm-4 col-lg-2">
-                        <a href="category.html" class="cat-block">
+                        <a href="/search/notebook" class="cat-block">
                             <figure>
                                     <span>
                                         <img src="assets/images/demos/demo-4/cats/1.png" alt="Category image">
                                     </span>
                             </figure>
 
-                            <h3 class="cat-block-title">Computer & Laptop</h3><!-- End .cat-block-title -->
+                            <h3 class="cat-block-title">Notebook</h3><!-- End .cat-block-title -->
                         </a>
                     </div><!-- End .col-sm-4 col-lg-2 -->
 
                     <div class="col-6 col-sm-4 col-lg-2">
-                        <a href="category.html" class="cat-block">
+                        <a href="/search/cameras" class="cat-block">
                             <figure>
                                     <span>
                                         <img src="assets/images/demos/demo-4/cats/2.png" alt="Category image">
                                     </span>
                             </figure>
 
-                            <h3 class="cat-block-title">Digital Cameras</h3><!-- End .cat-block-title -->
+                            <h3 class="cat-block-title">Câmeras</h3><!-- End .cat-block-title -->
                         </a>
                     </div><!-- End .col-sm-4 col-lg-2 -->
 
                     <div class="col-6 col-sm-4 col-lg-2">
-                        <a href="category.html" class="cat-block">
+                        <a href="/search/smartphone" class="cat-block">
                             <figure>
                                     <span>
                                         <img src="assets/images/demos/demo-4/cats/3.png" alt="Category image">
                                     </span>
                             </figure>
 
-                            <h3 class="cat-block-title">Smart Phones</h3><!-- End .cat-block-title -->
+                            <h3 class="cat-block-title">SmartPhones</h3><!-- End .cat-block-title -->
                         </a>
                     </div><!-- End .col-sm-4 col-lg-2 -->
 
                     <div class="col-6 col-sm-4 col-lg-2">
-                        <a href="category.html" class="cat-block">
+                        <a href="/search/tv" class="cat-block">
                             <figure>
                                     <span>
                                         <img src="assets/images/demos/demo-4/cats/4.png" alt="Category image">
                                     </span>
                             </figure>
 
-                            <h3 class="cat-block-title">Televisions</h3><!-- End .cat-block-title -->
+                            <h3 class="cat-block-title">Televisão</h3><!-- End .cat-block-title -->
                         </a>
                     </div><!-- End .col-sm-4 col-lg-2 -->
 
                     <div class="col-6 col-sm-4 col-lg-2">
-                        <a href="category.html" class="cat-block">
+                        <a href="/search/som" class="cat-block">
                             <figure>
                                     <span>
                                         <img src="assets/images/demos/demo-4/cats/5.png" alt="Category image">
@@ -186,14 +186,14 @@
                     </div><!-- End .col-sm-4 col-lg-2 -->
 
                     <div class="col-6 col-sm-4 col-lg-2">
-                        <a href="category.html" class="cat-block">
+                        <a href="/search/SmartWatches" class="cat-block">
                             <figure>
                                     <span>
                                         <img src="assets/images/demos/demo-4/cats/6.png" alt="Category image">
                                     </span>
                             </figure>
 
-                            <h3 class="cat-block-title">Smart Watches</h3><!-- End .cat-block-title -->
+                            <h3 class="cat-block-title">SmartWatches</h3><!-- End .cat-block-title -->
                         </a>
                     </div><!-- End .col-sm-4 col-lg-2 -->
                 </div><!-- End .row -->
@@ -317,7 +317,8 @@
                                 </a>
 
                                 <div class="product-action">
-                                    <a href="https://api.whatsapp.com/send?text=/{{$todos->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 98px;" class="fab fa-whatsapp"></i></a>
+                                    <a href="https://api.whatsapp.com/send?text=/{{$todos->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 78px;" class="fab fa-whatsapp"></i></a>
+                                    <a href="https://api.whatsapp.com/send?text=/{{$todos->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 20px;" class="fab fa-facebook"></i></a>
                                 </div><!-- End .product-action -->
 
 
@@ -327,6 +328,13 @@
                                 <div class="product-cat">
                                     <a href="#">All</a>
                                 </div><!-- End .product-cat -->
+                                <div style="display: inline-flex;" id="curtiram">
+                                <svg  xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                </svg>
+                                <h6 style="font-size: 10px;margin-top: 6%;margin-left: 3%;"> fulano e outra pessoas adiquiriram essa coooperação</h6>
+                                </div>
                                 <h3 class="product-title"><a href="produto/{{$todos->imagem}}">{{$todos->nome}}</a></h3><!-- End .product-title -->
                                 <div class="product-price">
                                     {{$todos->preco}}
@@ -334,7 +342,11 @@
                                 <div style="width: 82%;margin-left: 6%;" class="progress">
                                     <div  class="progress-bar" role="progressbar" style="width: 75%; background-color: #16C49F" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
+
+
                             </div><!-- End .product-body -->
+
+
                         </div><!-- End .product -->
 @endforeach
 
@@ -369,7 +381,7 @@
                         @foreach($celulares as $celular)
                         <div class="product product-2">
                             <figure class="product-media">
-                                <span class="product-label label-circle label-new">New</span>
+                                <span class="product-label label-circle label-new">Celular</span>
                                 <a href="produto/{{$celular->imagem}}">
                                     <img src="imagens/{{$celular->imagem}}.jpg" alt="Product image" class="product-image">
                                 </a>
@@ -377,7 +389,8 @@
 
 
                                 <div class="product-action">
-                                    <a href="https://api.whatsapp.com/send?text=/{{$celular->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 98px;" class="fab fa-whatsapp"></i></a>
+                                    <a href="https://api.whatsapp.com/send?text=/{{$todos->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 78px;" class="fab fa-whatsapp"></i></a>
+                                    <a href="https://api.whatsapp.com/send?text=/{{$todos->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 20px;" class="fab fa-facebook"></i></a>
                                 </div><!-- End .product-action -->
                             </figure><!-- End .product-media -->
 
@@ -385,6 +398,13 @@
                                 <div class="product-cat">
                                     <a href="#">Smartphones</a>
                                 </div><!-- End .product-cat -->
+                                <div style="display: inline-flex;" id="curtiram">
+                                    <svg  xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                    </svg>
+                                    <h6 style="font-size: 10px;margin-top: 6%;margin-left: 3%;"> fulano e outra pessoas adiquiriram essa coooperação</h6>
+                                </div>
                                 <h3 class="product-title"><a href="produto/{{$celular->imagem}}">{{$celular->nome}}</a></h3><!-- End .product-title -->
                                 <div class="product-price">
                                     {{$celular->preco}}
@@ -437,7 +457,8 @@
                                     <img src="imagens/{{$computador->imagem}}.jpg" alt="Product image" class="product-image">
                                 </a>
                                 <div class="product-action">
-                                    <a href="https://api.whatsapp.com/send?text=/{{$computador->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 98px;" class="fab fa-whatsapp"></i></a>
+                                    <a href="https://api.whatsapp.com/send?text=/{{$todos->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 78px;" class="fab fa-whatsapp"></i></a>
+                                    <a href="https://api.whatsapp.com/send?text=/{{$todos->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 20px;" class="fab fa-facebook"></i></a>
                                 </div><!-- End .product-action -->
                             </figure><!-- End .product-media -->
 
@@ -445,6 +466,13 @@
                                 <div class="product-cat">
                                     <a href="#">Computadores</a>
                                 </div><!-- End .product-cat -->
+                                <div style="display: inline-flex;" id="curtiram">
+                                    <svg  xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                    </svg>
+                                    <h6 style="font-size: 10px;margin-top: 6%;margin-left: 3%;"> fulano e outra pessoas adiquiriram essa coooperação</h6>
+                                </div>
                                 <h3 class="product-title"><a href="produto/{{$computador->imagem}}">{{$computador->nome}}</a></h3><!-- End .product-title -->
                                 <div class="product-price">
                                     {{$computador->preco}}
@@ -493,7 +521,8 @@
                                     <img src="imagens/{{$tvs->imagem}}.jpg" alt="Product image" class="product-image">
                                 </a>
                                 <div class="product-action">
-                                    <a href="https://api.whatsapp.com/send?text=/{{$tvs->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 98px;" class="fab fa-whatsapp"></i></a>
+                                    <a href="https://api.whatsapp.com/send?text=/{{$todos->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 78px;" class="fab fa-whatsapp"></i></a>
+                                    <a href="https://api.whatsapp.com/send?text=/{{$todos->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 20px;" class="fab fa-facebook"></i></a>
                                 </div><!-- End .product-action -->
                             </figure><!-- End .product-media -->
 
@@ -501,6 +530,13 @@
                                 <div class="product-cat">
                                     <a href="#">Tv</a>
                                 </div><!-- End .product-cat -->
+                                <div style="display: inline-flex;" id="curtiram">
+                                    <svg  xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                    </svg>
+                                    <h6 style="font-size: 10px;margin-top: 6%;margin-left: 3%;"> fulano e outra pessoas adiquiriram essa coooperação</h6>
+                                </div>
                                 <h3 class="product-title"><a href="produto/{{$tvs->imagem}}">{{$tvs->nome}}</a></h3><!-- End .product-title -->
                                 <div class="product-price">
                                     {{$tvs->preco}}
@@ -548,7 +584,8 @@
                                     <img src="imagens/{{$geladeiras->imagem}}.jpg" alt="Product image" class="product-image">
                                 </a>
                                 <div class="product-action">
-                                    <a href="https://api.whatsapp.com/send?text=/{{$geladeiras->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 98px;" class="fab fa-whatsapp"></i></a>
+                                    <a href="https://api.whatsapp.com/send?text=/{{$todos->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 78px;" class="fab fa-whatsapp"></i></a>
+                                    <a href="https://api.whatsapp.com/send?text=/{{$todos->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 20px;" class="fab fa-facebook"></i></a>
                                 </div><!-- End .product-action -->
                             </figure><!-- End .product-media -->
 
@@ -556,6 +593,13 @@
                                 <div class="product-cat">
                                     <a href="#">Geladeiras</a>
                                 </div><!-- End .product-cat -->
+                                <div style="display: inline-flex;" id="curtiram">
+                                    <svg  xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                    </svg>
+                                    <h6 style="font-size: 10px;margin-top: 6%;margin-left: 3%;"> fulano e outra pessoas adiquiriram essa coooperação</h6>
+                                </div>
                                 <h3 class="product-title"><a href="produto/{{$geladeiras->imagem}}">{{$geladeiras->nome}}</a></h3><!-- End .product-title -->
                                 <div class="product-price">
                                    {{$geladeiras->preco}}
@@ -604,7 +648,8 @@
                                     <img src="imagens/{{$fritadeiras->imagem}}.jpg" alt="Product image" class="product-image">
                                 </a>
                                 <div class="product-action">
-                                    <a href="https://api.whatsapp.com/send?text=/{{$fritadeiras->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 98px;" class="fab fa-whatsapp"></i></a>
+                                    <a href="https://api.whatsapp.com/send?text=/{{$todos->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 78px;" class="fab fa-whatsapp"></i></a>
+                                    <a href="https://api.whatsapp.com/send?text=/{{$todos->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 20px;" class="fab fa-facebook"></i></a>
                                 </div><!-- End .product-action -->
                             </figure><!-- End .product-media -->
 
@@ -612,6 +657,13 @@
                                 <div class="product-cat">
                                     <a href="#">Fritadeira</a>
                                 </div><!-- End .product-cat -->
+                                <div style="display: inline-flex;" id="curtiram">
+                                    <svg  xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                    </svg>
+                                    <h6 style="font-size: 10px;margin-top: 6%;margin-left: 3%;"> fulano e outra pessoas adiquiriram essa coooperação</h6>
+                                </div>
                                 <h3 class="product-title"><a href="produto/{{$fritadeiras->imagem}}">{{$fritadeiras->nome}}</a></h3><!-- End .product-title -->
                                 <div class="product-price">
                                     {{$fritadeiras->preco}}
@@ -657,7 +709,8 @@
 
 
                                 <div class="product-action">
-                                    <a href="https://api.whatsapp.com/send?text=/{{$fritadeiras->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 130px;" class="fab fa-whatsapp"></i></a>
+                                    <a href="https://api.whatsapp.com/send?text=/{{$todos->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 78px;" class="fab fa-whatsapp"></i></a>
+                                    <a href="https://api.whatsapp.com/send?text=/{{$todos->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 20px;" class="fab fa-facebook"></i></a>
                                 </div><!-- End .product-action -->
                             </figure><!-- End .product-media -->
 
@@ -667,13 +720,12 @@
                                 </div><!-- End .product-cat -->
                                 <h3 class="product-title"><a href="produto/28182268277">Iphone 11 64 GB</a></h3><!-- End .product-title -->
                                 <div class="product-price">
-                                    <span class="new-price">R$4.398</span>
-
+                                   R$4.398
                                 </div><!-- End .product-price -->
                                 <div class="ratings-container">
-                                    <div class="ratings">
-                                        <div class="ratings-val" style="width: 40%;"></div><!-- End .ratings-val -->
-                                    </div><!-- End .ratings -->
+                                    <div style="width: 82%;margin-left: 6%;" class="progress">
+                                        <div  class="progress-bar" role="progressbar" style="width: 75%; background-color: #16C49F" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
 
                                 </div><!-- End .rating-container -->
 
@@ -690,10 +742,9 @@
                                 </a>
 
 
-
                                 <div class="product-action">
-
-                                    <a href="https://api.whatsapp.com/send?text=/{{$fritadeiras->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 130px;" class="fab fa-whatsapp"></i></a>
+                                    <a href="https://api.whatsapp.com/send?text=/{{$todos->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 78px;" class="fab fa-whatsapp"></i></a>
+                                    <a href="https://api.whatsapp.com/send?text=/{{$todos->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 20px;" class="fab fa-facebook"></i></a>
                                 </div><!-- End .product-action -->
                             </figure><!-- End .product-media -->
 
@@ -706,9 +757,9 @@
                                     R$1.886
                                 </div><!-- End .product-price -->
                                 <div class="ratings-container">
-                                    <div class="ratings">
-                                        <div class="ratings-val" style="width: 60%;"></div><!-- End .ratings-val -->
-                                    </div><!-- End .ratings -->
+                                    <div style="width: 82%;margin-left: 6%;" class="progress">
+                                        <div  class="progress-bar" role="progressbar" style="width: 75%; background-color: #16C49F" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
 
                                 </div><!-- End .rating-container -->
                             </div><!-- End .product-body -->
@@ -726,8 +777,8 @@
 
 
                                 <div class="product-action">
-
-                                    <a href="https://api.whatsapp.com/send?text=/{{$fritadeiras->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 130px;" class="fab fa-whatsapp"></i></a>
+                                    <a href="https://api.whatsapp.com/send?text=/{{$todos->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 78px;" class="fab fa-whatsapp"></i></a>
+                                    <a href="https://api.whatsapp.com/send?text=/{{$todos->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 20px;" class="fab fa-facebook"></i></a>
                                 </div><!-- End .product-action -->
                             </figure><!-- End .product-media -->
 
@@ -740,9 +791,9 @@
                                     R$3075
                                 </div><!-- End .product-price -->
                                 <div class="ratings-container">
-                                    <div class="ratings">
-                                        <div class="ratings-val" style="width: 0%;"></div><!-- End .ratings-val -->
-                                    </div><!-- End .ratings -->
+                                    <div style="width: 82%;margin-left: 6%;" class="progress">
+                                        <div  class="progress-bar" role="progressbar" style="width: 75%; background-color: #16C49F" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
 
                                 </div><!-- End .rating-container -->
 
@@ -762,7 +813,8 @@
                                 </div><!-- End .product-action -->
 
                                 <div class="product-action">
-                                    <a href="https://api.whatsapp.com/send?text=/{{$fritadeiras->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 130px;" class="fab fa-whatsapp"></i></a>
+                                    <a href="https://api.whatsapp.com/send?text=/{{$todos->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 78px;" class="fab fa-whatsapp"></i></a>
+                                    <a href="https://api.whatsapp.com/send?text=/{{$todos->imagem}}"  target="_blank"> <i aria-placeholder="compartilhar" style="font-size: 30px;padding-left: 20px;" class="fab fa-facebook"></i></a>
                                 </div><!-- End .product-action -->
                             </figure><!-- End .product-media -->
 
@@ -772,15 +824,13 @@
                                 </div><!-- End .product-cat -->
                                 <h3 class="product-title"><a href="product.html">Lenovo - 330-15IKBR 15.6"</a></h3><!-- End .product-title -->
                                 <div class="product-price">
-                                    <span class="out-price">$339.99</span>
-                                    <span class="out-text">Out Of Stock</span>
+                                    <span class="price">$339.99</span>
+
                                 </div><!-- End .product-price -->
                                 <div class="ratings-container">
-                                    <div class="ratings">
-                                        <div class="ratings-val" style="width: 60%;"></div><!-- End .ratings-val -->
-                                    </div><!-- End .ratings -->
-                                    <span class="ratings-text">( 11 Reviews )</span>
-                                </div><!-- End .rating-container -->
+                                    <div style="width: 82%;margin-left: 6%;" class="progress">
+                                        <div  class="progress-bar" role="progressbar" style="width: 75%; background-color: #16C49F" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
                             </div><!-- End .product-body -->
                         </div><!-- End .product -->
                     </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
@@ -1007,36 +1057,7 @@
 <!-- Sign in / Register Modal -->
 @include('modal')
 
-<div class="container newsletter-popup-container mfp-hide" id="newsletter-popup-form">
-    <div class="row justify-content-center">
-        <div class="col-10">
-            <div class="row no-gutters bg-white newsletter-popup-content">
-                <div class="col-xl-3-5col col-lg-7 banner-content-wrap">
-                    <div class="banner-content text-center">
-                        <img src="imagens/Logo CoopON Fundo Transparente.png" class="logo" alt="logo" width="60" height="15">
-                        <h2 class="banner-title">get <span>25<light>%</light></span> off</h2>
-                        <p>Subscribe to the Molla eCommerce newsletter to receive timely updates from your favorite products.</p>
-                        <form action="#">
-                            <div class="input-group input-group-round">
-                                <input type="email" class="form-control form-control-white" placeholder="Your Email Address" aria-label="Email Adress" required>
-                                <div class="input-group-append">
-                                    <button class="btn" type="submit"><span>go</span></button>
-                                </div><!-- .End .input-group-append -->
-                            </div><!-- .End .input-group -->
-                        </form>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="register-policy-2" required>
-                            <label class="custom-control-label" for="register-policy-2">Do not show this popup again</label>
-                        </div><!-- End .custom-checkbox -->
-                    </div>
-                </div>
-                <div class="col-xl-2-5col col-lg-5 ">
-                    <img src="assets/images/popup/newsletter/img-1.jpg" class="newsletter-img" alt="newsletter">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@include('termos')
 <!-- Plugins JS File -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/bootstrap.bundle.min.js"></script>

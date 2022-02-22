@@ -17,10 +17,15 @@ Use a better box model (opinionated).
 .top-menu a:hover{
     color:#16C49F !important ;
 }
-.nav.nav-pills .nav-item .nav-link.active{
+.nav.nav-pills .nav-item .nav-link.active::before{
     border-bottom-color: #16C49F !important ;
+    background-color: #16C49F !important ;;
 
 }
+.product-main-image img {
+width: 60% !important;
+}
+
 .btn-primary{
     background-color:#16C49F !important ;
     border : 1px #16C49F !important ;
