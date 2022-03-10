@@ -195,7 +195,7 @@
                                     <h1 class="product-title">Preço da Cotação:<div style="display: inline !important;padding-left: 10px !important;" class="product-price">R$ 150</div> </h1>
                                 </div><!-- End .product-price -->
                                 <br>
-                                <a href="../../checkout/1" style="margin-left: 16%;width: 71%;" class="btn btn-primary">Adquirir Coperação</a>
+                                <a href="../../checkout/{{$dado->imagem}}" style="margin-left: 16%;width: 71%;" class="btn btn-primary">Adquirir Coperação</a>
 
 
 

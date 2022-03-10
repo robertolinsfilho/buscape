@@ -153,38 +153,49 @@
                                 @endguest
                                 @if($endereco == null )
                                 <div class="row">
+                                    <h3 class="card-title">Cadastre seu Endereço e a Foto de Perfil</h3>
+                                    <br>
+                                    <br>
+
+
+                                    <div class="custom-file" style="width: 50%;margin-left: -37%;margin-top: 5%;">
+                                    <input placeholder="Selecione a foto" type="file" name="foto" class="custom-file-input" required/>
+                                    <label class="custom-file-label" for="validatedCustomFile">Selecione a foto...</label>
+                                    </div>
+
+                                        <br>
                                     <div class="col-lg-6">
                                         <label>Rua</label>
-                                        <input type="text" class="form-control">
+                                        <input type="text" name="rua" class="form-control">
                                     </div>
                                     <div class="col-lg-6">
                                         <label>Numero</label>
-                                        <input type="text" class="form-control" required>
+                                        <input type="text" name="numero" class="form-control" required>
                                     </div>
                                     <div class="col-lg-6">
                                         <label>Estado</label>
-                                        <input type="text" class="form-control" required>
+                                        <input type="text" name="numero" class="form-control" required>
                                     </div>
                                     <div class="col-sm-6">
                                             <label>Cidade</label>
-                                            <input type="text" class="form-control" placeholder="House number and Street name" required>
+                                            <input type="text" name="cidade" class="form-control"  required>
 
                                     </div>
                                     <div class="col-sm-6">
                                         <label>Complemento</label>
-                                        <input type="text" class="form-control" placeholder="House number and Street name" required>
+                                        <input type="text" name="complemento" class="form-control"  required>
 
                                     </div>
                                     <div class="col-sm-6">
                                         <label>Telefone com DDD</label>
-                                        <input type="text" class="form-control" placeholder="House number and Street name" required>
+                                        <input type="text" name="telefone" class="form-control" required>
 
                                     </div>
                                 </div>
                                         @endif
-                                <div class="row">
+                                <div id="cartao" class="row">
                                     <div class="col-sm-6">
-                                        <label>Town / City *</label>
+                                        <label>Ro</label>
                                         <input type="text" class="form-control" required>
                                     </div><!-- End .col-sm-6 -->
 
@@ -209,18 +220,7 @@
                                 <label>Email address *</label>
                                 <input type="email" class="form-control" required>
 
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="checkout-create-acc">
-                                    <label class="custom-control-label" for="checkout-create-acc">Create an account?</label>
-                                </div><!-- End .custom-checkbox -->
 
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="checkout-diff-address">
-                                    <label class="custom-control-label" for="checkout-diff-address">Ship to a different address?</label>
-                                </div><!-- End .custom-checkbox -->
-
-                                <label>Order notes (optional)</label>
-                                <textarea class="form-control" cols="30" rows="4" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
                             </div><!-- End .col-lg-9 -->
                             <aside class="col-lg-3">
                                 <div class="summary">
@@ -229,51 +229,22 @@
                                     <table class="table table-summary">
                                         <thead>
                                         <tr>
-                                            <th>Product</th>
+                                            <th>Produto</th>
                                             <th>Total</th>
                                         </tr>
                                         </thead>
-
+                                        @foreach($produto as $produtos)
                                         <tbody>
                                         <tr>
-                                            <td><a href="#">Beige knitted elastic runner shoes</a></td>
-                                            <td>$84.00</td>
+                                            <td><a>{{$produtos->nome}}</a></td>
+                                            <td>R${{$produtos->preco}}</td>
                                         </tr>
-
-                                        <tr>
-                                            <td><a href="#">Blue utility pinafore denimdress</a></td>
-                                            <td>$76,00</td>
-                                        </tr>
-                                        <tr class="summary-subtotal">
-                                            <td>Subtotal:</td>
-                                            <td>$160.00</td>
-                                        </tr><!-- End .summary-subtotal -->
-                                        <tr>
-                                            <td>Shipping:</td>
-                                            <td>Free shipping</td>
-                                        </tr>
-                                        <tr class="summary-total">
-                                            <td>Total:</td>
-                                            <td>$160.00</td>
-                                        </tr><!-- End .summary-total -->
                                         </tbody>
+                                        @endforeach
                                     </table><!-- End .table table-summary -->
 
                                     <div class="accordion-summary" id="accordion-payment">
-                                        <div class="card">
-                                            <div class="card-header" id="heading-1">
-                                                <h2 class="card-title">
-                                                    <a role="button" data-toggle="collapse" href="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
-                                                        Direct bank transfer
-                                                    </a>
-                                                </h2>
-                                            </div><!-- End .card-header -->
-                                            <div id="collapse-1" class="collapse show" aria-labelledby="heading-1" data-parent="#accordion-payment">
-                                                <div class="card-body">
-                                                    Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
-                                                </div><!-- End .card-body -->
-                                            </div><!-- End .collapse -->
-                                        </div><!-- End .card -->
+
 
                                         <div class="card">
                                             <div class="card-header" id="heading-2">
@@ -324,7 +295,7 @@
                                                 <h2 class="card-title">
                                                     <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
                                                         Credit Card (Stripe)
-                                                        <img src="assets/images/payments-summary.png" alt="payments cards">
+                                                        <img src="../assets/images/payments-summary.png" alt="payments cards">
                                                     </a>
                                                 </h2>
                                             </div><!-- End .card-header -->

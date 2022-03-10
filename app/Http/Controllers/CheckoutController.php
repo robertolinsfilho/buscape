@@ -9,9 +9,12 @@ use App\Models\enderecos;
 class CheckoutController extends Controller
 {
     public function checkout($id){
-
+        $produto = DB::table('produtos')->where('produtos.imagem', $id)->get();
         if(auth()->user()) {
             $endereco = DB::table('enderecos')->where('enderecos.email', auth()->user()->email)->get();
+
+
+
             if(!$endereco->isNotEmpty())
             {
                 $endereco = NULL;
@@ -21,7 +24,7 @@ class CheckoutController extends Controller
             $endereco = NULL;
         }
 
-        return view('checkout', compact('endereco'));
+        return view('checkout', compact('endereco', 'produto'));
     }
     public function salvarcheckout(Request $request){
         $enderecos = new Enderecos;

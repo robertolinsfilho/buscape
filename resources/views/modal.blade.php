@@ -1,3 +1,4 @@
+@include('favicon')
 <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -64,7 +65,7 @@
 
                                     <x-jet-validation-errors class="mb-4" />
 
-                                    <form method="POST" action="{{ route('register') }}">
+                                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                                         @csrf
 
                                         <div>
@@ -86,6 +87,8 @@
                                             <x-jet-label style="font-size: 15px" for="password_confirmation" value="{{ __('Confirmar Senha') }}" />
                                             <x-jet-input style="height: 37px;"  id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
                                         </div>
+
+
 
                                         @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                                             <div class="mt-4">

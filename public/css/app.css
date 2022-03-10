@@ -36,7 +36,7 @@ width: 60% !important;
 .nav.nav-border-anim .nav-link:before{
     color:#16C49F !important ;
 }
-#email , #password{
+#email , #password, #password_confirmation, #name{
     font-size: 18px;
 
 }

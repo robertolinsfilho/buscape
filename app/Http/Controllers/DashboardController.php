@@ -18,6 +18,13 @@ class DashboardController extends Controller
         $enderecos->cidade = $request->cidade;
         $enderecos->telefone = $request->telefone;
         $enderecos->complemento = $request->complemento;
+        if($request->hasFile('foto') && $request->file('foto')->isValid()){
+            $requestImage = $request->foto;
+            $extension = $requestImage->extension();
+            $imageName = $requestImage->getClientOriginalName();
+            $request->foto->move(public_path('imagens'), $imageName);
+            $enderecos->foto = $imageName;
+        }
         $enderecos->save();
         $endereco2 = DB::table('enderecos')->where('enderecos.email', auth()->user()->email)->get();
         return redirect('/minhaconta') ;

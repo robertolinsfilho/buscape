@@ -205,7 +205,7 @@
 
 
                                 <div  class="tab-pane fade" id="tab-address" role="tabpanel" aria-labelledby="tab-address-link">
-                                    <p>The following addresses will be used on the checkout page by default.</p>
+
                                     <?php
                                     if(!empty($endereco)){
                                     foreach($endereco as $enderecos){
@@ -214,8 +214,12 @@
                                     }
                                     if(empty($x)) {?>
 
-                                    <form method="post" action="salvarendereco">
+                                    <form method="post" action="salvarendereco" enctype="multipart/form-data">
                                         @csrf
+                                        <h3 class="card-title">Foto de Perfil</h3>
+                                        <br>
+                                        <input type="file" name="foto" class="form-control" required/>
+                                        <br>
                                     <h3>Cadastre seu endereço</h3>
                                     <br>
                                     <div class="row">
@@ -246,33 +250,25 @@
 
 
                                     <div class="row">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-12">
+
                                             <div class="card card-dashboard">
                                                 <div class="card-body">
                                                     <h3 class="card-title">Dados do Endereço</h3><!-- End .card-title -->
                                                     @foreach($endereco2 as $endereco)
-                                                    <p>{{$endereco->rua}}<br>
-                                                        {{$endereco->cidade}}<br>
-                                                        {{$endereco->numero}}<br>
-                                                        {{$endereco->estado}}<br>
-                                                        {{$endereco->complemento}}<br>
-                                                        {{$endereco->email}}<br>
+                                                    <p style="font-size: 16px">Rua: {{$endereco->rua}}<br>
+                                                       Cidade: {{$endereco->cidade}}<br>
+                                                      Número: {{$endereco->numero}}<br>
+                                                     Estado: {{$endereco->estado}}<br>
+                                                     Complemento: {{$endereco->complemento}}<br>
+
                                                         @endforeach
-                                                        <a href="#">Edit <i class="icon-edit"></i></a></p>
+
                                                 </div><!-- End .card-body -->
                                             </div><!-- End .card-dashboard -->
                                         </div><!-- End .col-lg-6 -->
 
-                                        <div class="col-lg-6">
-                                            <div class="card card-dashboard">
-                                                <div class="card-body">
-                                                    <h3 class="card-title">Shipping Address</h3><!-- End .card-title -->
 
-                                                    <p>You have not set up this type of address yet.<br>
-                                                        <a href="#">Edit <i class="icon-edit"></i></a></p>
-                                                </div><!-- End .card-body -->
-                                            </div><!-- End .card-dashboard -->
-                                        </div><!-- End .col-lg-6 -->
                                     </div><!-- End .row -->
 
 <?php }?>
