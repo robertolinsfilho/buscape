@@ -1,6 +1,10 @@
 @include('favicon')
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+<script>
+    const mp = new MercadoPago('TEST-1a53719e-90f9-4b1a-b608-7cc0cedebd22');
 
-
+</script>
     <!-- Plugins CSS File -->
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
     <!-- Main CSS File -->
@@ -193,33 +197,56 @@
                                     </div>
                                 </div>
                                         @endif
-                                <div id="cartao" class="row">
-                                    <div class="col-sm-6">
-                                        <label>Ro</label>
-                                        <input type="text" class="form-control" required>
-                                    </div><!-- End .col-sm-6 -->
+                    </form>
+                                    <!-- Step #2 -->
+                                        <form id="form-checkout">
+                                            @csrf
+                                            <div class="row">
+                                            <div class="col-sm-6">
+                                            <label>Número Cartão</label>
+                                            <input type="text" class="form-control" name="cardNumber" id="form-checkout__cardNumber" />
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label>Data de Validade</label>
+                                            <input type="text" class="form-control" name="cardExpirationDate" id="form-checkout__cardExpirationDate" />
+                                            </div>
 
-                                    <div class="col-sm-6">
-                                        <label>State / County *</label>
-                                        <input type="text" class="form-control" required>
-                                    </div><!-- End .col-sm-6 -->
-                                </div><!-- End .row -->
-
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <label>Postcode / ZIP *</label>
-                                        <input type="text" class="form-control" required>
-                                    </div><!-- End .col-sm-6 -->
-
-                                    <div class="col-sm-6">
-                                        <label>Phone *</label>
-                                        <input type="tel" class="form-control" required>
-                                    </div><!-- End .col-sm-6 -->
-                                </div><!-- End .row -->
-
-                                <label>Email address *</label>
-                                <input type="email" class="form-control" required>
-
+                                            <div class="col-sm-6">
+                                                <label>Nome no Cartão</label>
+                                            <input type="text" class="form-control" name="cardholderName" id="form-checkout__cardholderName"/>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label>E-mail</label>
+                                            <input type="email" class="form-control" name="cardholderEmail" id="form-checkout__cardholderEmail"/>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label>Codigo de segurança </label>
+                                            <input type="text"  class="form-control"name="securityCode" id="form-checkout__securityCode" />
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label>Parcelas</label>
+                                            <select name="issuer"  class="form-control" id="form-checkout__issuer"></select>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label>Número Cartão</label>
+                                            <select name="identificationType" class="form-control" id="form-checkout__identificationType"></select>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label>Número Cartão</label>
+                                            <input type="text" class="form-control" name="identificationNumber" id="form-checkout__identificationNumber"/>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label>Número Cartão</label>
+                                            <select name="installments" class="form-control" id="form-checkout__installments"></select>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label>Número Cartão</label>
+                                            <button type="submit" class="form-control" id="form-checkout__submit">Pagar</button>
+                                            </div>
+                                            </div>
+                                            <progress value="0" class="progress-bar">Carregando...</progress>
+                                            <button type="submit">submit</button>
+                                        </form>
 
                             </div><!-- End .col-lg-9 -->
                             <aside class="col-lg-3">
@@ -250,13 +277,13 @@
                                             <div class="card-header" id="heading-2">
                                                 <h2 class="card-title">
                                                     <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
-                                                        Check payments
+                                                        Cartão  de Credito
                                                     </a>
                                                 </h2>
                                             </div><!-- End .card-header -->
                                             <div id="collapse-2" class="collapse" aria-labelledby="heading-2" data-parent="#accordion-payment">
                                                 <div class="card-body">
-                                                    Ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
+
                                                 </div><!-- End .card-body -->
                                             </div><!-- End .collapse -->
                                         </div><!-- End .card -->
@@ -265,12 +292,13 @@
                                             <div class="card-header" id="heading-3">
                                                 <h2 class="card-title">
                                                     <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
-                                                        Cash on delivery
+                                                       Pix
                                                     </a>
                                                 </h2>
                                             </div><!-- End .card-header -->
                                             <div id="collapse-3" class="collapse" aria-labelledby="heading-3" data-parent="#accordion-payment">
-                                                <div class="card-body">Quisque volutpat mattis eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.
+                                                <div class="card-body">
+
                                                 </div><!-- End .card-body -->
                                             </div><!-- End .collapse -->
                                         </div><!-- End .card -->
@@ -313,7 +341,7 @@
                                 </div><!-- End .summary -->
                             </aside><!-- End .col-lg-3 -->
                         </div><!-- End .row -->
-                    </form>
+
                 </div><!-- End .container -->
             </div><!-- End .checkout -->
         </div><!-- End .page-content -->
@@ -507,6 +535,105 @@
 <script src="../../assets/js/owl.carousel.min.js"></script>
 <!-- Main JS File -->
 <script src="../../assets/js/main.js"></script>
+<script>
+    const cardForm = mp.cardForm({
+        amount: "1",
+        autoMount: true,
+        form: {
+            id: "form-checkout",
+            cardholderName: {
+                id: "form-checkout__cardholderName",
+                placeholder: "Titular do cartão",
+            },
+            cardholderEmail: {
+                id: "form-checkout__cardholderEmail",
+                placeholder: "E-mail",
+            },
+            cardNumber: {
+                id: "form-checkout__cardNumber",
+                placeholder: "Número do cartão",
+            },
+            cardExpirationDate: {
+                id: "form-checkout__cardExpirationDate",
+                placeholder: "Data de vencimento (MM/YYYY)",
+            },
+            securityCode: {
+                id: "form-checkout__securityCode",
+                placeholder: "Código de segurança",
+            },
+            installments: {
+                id: "form-checkout__installments",
+                placeholder: "Parcelas",
+            },
+            identificationType: {
+                id: "form-checkout__identificationType",
+                placeholder: "Tipo de documento",
+            },
+            identificationNumber: {
+                id: "form-checkout__identificationNumber",
+                placeholder: "Número do documento",
+            },
+            issuer: {
+                id: "form-checkout__issuer",
+                placeholder: "Banco emissor",
+            },
+        },
+        callbacks: {
+            onFormMounted: error => {
+                if (error) return console.warn("Form Mounted handling error: ", error);
+                console.log("Form mounted");
+            },
+            onSubmit: event => {
+                event.preventDefault();
+
+                const {
+                    paymentMethodId: payment_method_id,
+                    issuerId: issuer_id,
+                    cardholderEmail: email,
+                    amount,
+                    token,
+                    installments,
+                    identificationNumber,
+                    identificationType,
+                } = cardForm.getCardFormData();
+
+                fetch("/process_payment", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    },
+                    body: JSON.stringify({
+                        token,
+                        issuer_id,
+                        payment_method_id,
+                        transaction_amount: Number(amount),
+                        installments: Number(installments),
+                        description: "Descrição do produto",
+                        payer: {
+                            email,
+                            identification: {
+                                type: identificationType,
+                                number: identificationNumber,
+                            },
+                        },
+                    }),
+                });
+            },
+            onFetching: (resource) => {
+                console.log("Fetching resource: ", resource);
+
+                // Animate progress bar
+                const progressBar = document.querySelector(".progress-bar");
+                progressBar.removeAttribute("value");
+
+                return () => {
+                    progressBar.setAttribute("value", "0");
+                };
+            }
+        },
+    });
+</script>
 </body>
 
 

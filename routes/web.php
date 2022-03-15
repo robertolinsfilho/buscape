@@ -21,6 +21,7 @@ Route::get('/minhaconta', [\App\Http\Controllers\HomeController::class, 'minhaco
 Route::get('/produtos', [\App\Http\Controllers\DashboardController::class, 'produtos'] );
 Route::post('/salvarendereco', [\App\Http\Controllers\DashboardController::class, 'salvarendereco'] );
 Route::post('/salvarcheckout', [\App\Http\Controllers\CheckoutController::class, 'salvarcheckout'] );
+Route::post('/process_payment', [\App\Http\Controllers\CheckoutController::class, 'process_payment'] );
 Route::post('/salvarcoperacao', [\App\Http\Controllers\DashboardController::class, 'salvarcoperacao'] );
 Route::get('/checkout/{id}', [\App\Http\Controllers\CheckoutController::class, 'checkout'] );
 
