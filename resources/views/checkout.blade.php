@@ -1,10 +1,6 @@
 @include('favicon')
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<script src="https://sdk.mercadopago.com/js/v2"></script>
-<script>
-    const mp = new MercadoPago('TEST-1a53719e-90f9-4b1a-b608-7cc0cedebd22');
 
-</script>
     <!-- Plugins CSS File -->
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
     <!-- Main CSS File -->
@@ -199,7 +195,7 @@
                                         @endif
                     </form>
                                     <!-- Step #2 -->
-                                        <form id="form-checkout">
+                                        <form id="formcartao" action="/process_payment" method="post" >
                                             @csrf
                                             <div class="row">
                                             <div class="col-sm-6">
@@ -276,7 +272,7 @@
                                         <div class="card">
                                             <div class="card-header" id="heading-2">
                                                 <h2 class="card-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+                                                    <a id="cartaobutton" class="collapsed" role="button" data-toggle="collapse" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
                                                         Cartão  de Credito
                                                     </a>
                                                 </h2>
@@ -536,103 +532,13 @@
 <!-- Main JS File -->
 <script src="../../assets/js/main.js"></script>
 <script>
-    const cardForm = mp.cardForm({
-        amount: "1",
-        autoMount: true,
-        form: {
-            id: "form-checkout",
-            cardholderName: {
-                id: "form-checkout__cardholderName",
-                placeholder: "Titular do cartão",
-            },
-            cardholderEmail: {
-                id: "form-checkout__cardholderEmail",
-                placeholder: "E-mail",
-            },
-            cardNumber: {
-                id: "form-checkout__cardNumber",
-                placeholder: "Número do cartão",
-            },
-            cardExpirationDate: {
-                id: "form-checkout__cardExpirationDate",
-                placeholder: "Data de vencimento (MM/YYYY)",
-            },
-            securityCode: {
-                id: "form-checkout__securityCode",
-                placeholder: "Código de segurança",
-            },
-            installments: {
-                id: "form-checkout__installments",
-                placeholder: "Parcelas",
-            },
-            identificationType: {
-                id: "form-checkout__identificationType",
-                placeholder: "Tipo de documento",
-            },
-            identificationNumber: {
-                id: "form-checkout__identificationNumber",
-                placeholder: "Número do documento",
-            },
-            issuer: {
-                id: "form-checkout__issuer",
-                placeholder: "Banco emissor",
-            },
-        },
-        callbacks: {
-            onFormMounted: error => {
-                if (error) return console.warn("Form Mounted handling error: ", error);
-                console.log("Form mounted");
-            },
-            onSubmit: event => {
-                event.preventDefault();
-
-                const {
-                    paymentMethodId: payment_method_id,
-                    issuerId: issuer_id,
-                    cardholderEmail: email,
-                    amount,
-                    token,
-                    installments,
-                    identificationNumber,
-                    identificationType,
-                } = cardForm.getCardFormData();
-
-                fetch("/process_payment", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                    },
-                    body: JSON.stringify({
-                        token,
-                        issuer_id,
-                        payment_method_id,
-                        transaction_amount: Number(amount),
-                        installments: Number(installments),
-                        description: "Descrição do produto",
-                        payer: {
-                            email,
-                            identification: {
-                                type: identificationType,
-                                number: identificationNumber,
-                            },
-                        },
-                    }),
-                });
-            },
-            onFetching: (resource) => {
-                console.log("Fetching resource: ", resource);
-
-                // Animate progress bar
-                const progressBar = document.querySelector(".progress-bar");
-                progressBar.removeAttribute("value");
-
-                return () => {
-                    progressBar.setAttribute("value", "0");
-                };
-            }
-        },
-    });
+  $( document ).ready(function() {
+    $('#formcartao').css('display', 'none');
+});
+$( "#cartaobutton" ).on( "click", function() {
+    $('#formcartao').css('display', 'block');
+  console.log('entrei')
+});
 </script>
 </body>
 

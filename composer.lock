@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0cfbc674da98a57e57cbf5e5281a17ab",
+    "content-hash": "def2f581c6334090475c053eee75c9a0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3215,6 +3215,60 @@
                 }
             ],
             "time": "2021-09-25T23:10:38+00:00"
+        },
+        {
+            "name": "safe2pay/sdk",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SafeToPay/PHP.git",
+                "reference": "836b94c2aac6c0f5e35751c950efc6fdbf788013"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SafeToPay/PHP/zipball/836b94c2aac6c0f5e35751c950efc6fdbf788013",
+                "reference": "836b94c2aac6c0f5e35751c950efc6fdbf788013",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "./lib/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Safe2Pay",
+                    "email": "integracao@safe2pay.com.br"
+                }
+            ],
+            "description": "Biblioteca para integração com a plataforma de pagamentos Safe2Pay",
+            "homepage": "https://safe2pay.com.br/",
+            "keywords": [
+                "Pagamento",
+                "boleto",
+                "credito",
+                "debito",
+                "facil",
+                "payment",
+                "seguranca"
+            ],
+            "support": {
+                "issues": "https://github.com/SafeToPay/PHP/issues",
+                "source": "https://github.com/SafeToPay/PHP/tree/master"
+            },
+            "time": "2022-03-08T15:02:55+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -8334,7 +8388,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "safe2pay/sdk": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

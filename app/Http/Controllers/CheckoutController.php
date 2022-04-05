@@ -6,6 +6,18 @@ use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\enderecos;
+require_once '../vendor/autoload.php';
+
+use Safe2Pay\API\PaymentRequest;
+use Safe2Pay\Models\Payment\BankSlip;
+use Safe2Pay\Models\Payment\CreditCard;
+use Safe2Pay\Models\Transactions\Transaction;
+use Safe2Pay\Models\General\Customer;
+use Safe2Pay\Models\General\Product;
+use Safe2Pay\Models\General\Address;
+
+use Safe2Pay\Models\Core\Config as Enviroment;
+
 class CheckoutController extends Controller
 {
     public function checkout($id){
@@ -42,36 +54,67 @@ class CheckoutController extends Controller
     }
     public function process_payment(Request $request){
 
-        require_once '../vendor/autoload.php';
+        $enviroment = new Enviroment();
+        $enviroment->setAPIKEY('F238F433563C4A27BB78AC392ADEB528');
+      //  3334CDD348C74B94B1956CAEB05C45BE317CD6C5ACD84B6F9F4A1ACDCB8C8A56
+//Inicializar método de pagamento
+        $payload  = new Transaction();
+//Ambiente de homologação
+        $payload->setIsSandbox(true);
+//Descrição geral
+        $payload->setApplication("Teste SDK PHP");
+//Nome do vendedor
+        $payload->setVendor("João da Silva");
+//Url de callback
+        $payload->setCallbackUrl("https://callbacks.exemplo.com.br/api/Notify");
 
-    MercadoPago\SDK::setAccessToken("TEST-7594661504459778-030800-ac588eece63cfdbc2c8420a8928ebdfd-1039744168");
+//Código da forma de pagamento
+// 1 - Boleto bancário
+// 2 - Cartão de crédito
+// 3 - Criptomoeda
+// 4 - Cartão de débito
+        $payload->setPaymentMethod("2");
 
-    $payment = new MercadoPago\Payment();
-   $payment->transaction_amount = (float)$_POST['transactionAmount'];
-    $payment->token = $_POST['token'];
-    $payment->description = $_POST['description'];
-    $payment->installments = (int)$_POST['installments'];
-    $payment->payment_method_id = $_POST['paymentMethodId'];
-    $payment->issuer_id = (int)$_POST['issuer'];
+        $CreditCard = new CreditCard("João da Silva", "5484375429225691", "03/2024", "367");
 
-    $payer = new MercadoPago\Payer();
-    $payer->email = $_POST['cardholderEmail'];
-    $payer->identification = array(
-        "type" => $_POST['identificationType'],
-        "number" => $_POST['identificationNumber']
-    );
-    $payer->first_name = $_POST['cardholderName'];
-    $payment->payer = $payer;
+//Objeto de pagamento - para boleto bancário
+        $payload->setPaymentObject($CreditCard);
 
-    $payment->save();
+        $Products = array();
 
-    $response = array(
-        'status' => $payment->status,
-        'status_detail' => $payment->status_detail,
-        'id' => $payment->id
-    );
-    echo json_encode($response);
+        $payloadProduct = new Product();
+        $payloadProduct->setCode(1);
+        $payloadProduct->setDescription("Produto 1");
+        $payloadProduct->setUnitPrice(2.50);
+        $payloadProduct->setQuantity(2);
 
+        array_push($Products, $payloadProduct);
+
+        $payload->setProducts($Products);
+
+//Customer
+        $Customer =  new Customer();
+        $Customer->setName("Teste Cliente");
+        $Customer->setIdentity("01579286000174");
+        $Customer->setEmail("Teste@Teste.com.br");
+        $Customer->setPhone("51999999999");
+
+        $Customer->Address = new Address();
+        $Customer->Address->setZipCode("90620000");
+        $Customer->Address->setStreet("Avenida Princesa Isabel");
+        $Customer->Address->setNumber("828");
+        $Customer->Address->setComplement("Lado B");
+        $Customer->Address->setDistrict("Santana");
+        $Customer->Address->setStateInitials("RS");
+        $Customer->Address->setCityName("Porto Alegre");
+        $Customer->Address->setCountryName("Brasil");
+
+
+        $payload->setCustomer($Customer);
+
+        $response  = PaymentRequest::CreatePayment($payload);
+       //dd($payload);
+        dd($response);
 
     }
 }
