@@ -272,8 +272,9 @@
                                         <div class="card">
                                             <div class="card-header" id="heading-2">
                                                 <h2 class="card-title">
-                                                    <a id="cartaobutton" class="collapsed" role="button" data-toggle="collapse" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+                                                    <a id="cartaobutton" name="cartaobutton" class="collapsed" role="button" data-toggle="collapse" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
                                                         Cartão  de Credito
+                                                        <img src="../assets/images/payments-summary.png" alt="payments cards">
                                                     </a>
                                                 </h2>
                                             </div><!-- End .card-header -->
@@ -287,8 +288,8 @@
                                         <div class="card">
                                             <div class="card-header" id="heading-3">
                                                 <h2 class="card-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
-                                                       Pix
+                                                    <a id="boleto" class="collapsed" role="button" data-toggle="collapse" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+                                                        Boleto Bancario
                                                     </a>
                                                 </h2>
                                             </div><!-- End .card-header -->
@@ -299,35 +300,7 @@
                                             </div><!-- End .collapse -->
                                         </div><!-- End .card -->
 
-                                        <div class="card">
-                                            <div class="card-header" id="heading-4">
-                                                <h2 class="card-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
-                                                        PayPal <small class="float-right paypal-link">What is PayPal?</small>
-                                                    </a>
-                                                </h2>
-                                            </div><!-- End .card-header -->
-                                            <div id="collapse-4" class="collapse" aria-labelledby="heading-4" data-parent="#accordion-payment">
-                                                <div class="card-body">
-                                                    Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.
-                                                </div><!-- End .card-body -->
-                                            </div><!-- End .collapse -->
-                                        </div><!-- End .card -->
-
-                                        <div class="card">
-                                            <div class="card-header" id="heading-5">
-                                                <h2 class="card-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
-                                                        Credit Card (Stripe)
-                                                        <img src="../assets/images/payments-summary.png" alt="payments cards">
-                                                    </a>
-                                                </h2>
-                                            </div><!-- End .card-header -->
-                                            <div id="collapse-5" class="collapse" aria-labelledby="heading-5" data-parent="#accordion-payment">
-                                                <div class="card-body"> Donec nec justo eget felis facilisis fermentum.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Lorem ipsum dolor sit ame.
-                                                </div><!-- End .card-body -->
-                                            </div><!-- End .collapse -->
-                                        </div><!-- End .card -->
+                                       
                                     </div><!-- End .accordion -->
 
                                     <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
@@ -535,9 +508,20 @@
   $( document ).ready(function() {
     $('#formcartao').css('display', 'none');
 });
+var x = 0;
 $( "#cartaobutton" ).on( "click", function() {
-    $('#formcartao').css('display', 'block');
-  console.log('entrei')
+        if ((x / 2) % 2 == 0 ){
+            x++;
+            $('#formcartao').css('display', 'block');                  
+        }else{
+            x--;
+            $('#formcartao').css('display', 'none');                       
+        }   
+});
+$( "#boleto" ).on( "click", function() {
+    $('#formcartao').css('display', 'none'); 
+    x = 0;    
+
 });
 </script>
 </body>
