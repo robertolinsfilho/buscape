@@ -193,11 +193,11 @@
                                     </div>
                                 </div>
                                         @endif
-                    </form>
+                   
                                     <!-- Step #2 -->
-                                        <form id="formcartao" action="/process_payment" method="post" >
-                                            @csrf
-                                            <div class="row">
+                                      
+                                          
+                                            <div id="formcartao" class="row">
                                             <div class="col-sm-6">
                                             <label>Número Cartão</label>
                                             <input type="text" class="form-control" name="cardNumber" id="form-checkout__cardNumber" />
@@ -237,12 +237,12 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <label>Número Cartão</label>
+                                                @csrf
                                             <button type="submit" class="form-control" id="form-checkout__submit">Pagar</button>
                                             </div>
                                             </div>
-                                            <progress value="0" class="progress-bar">Carregando...</progress>
-                                            <button type="submit">submit</button>
-                                        </form>
+                                           
+                                       
 
                             </div><!-- End .col-lg-9 -->
                             <aside class="col-lg-3">
@@ -303,10 +303,12 @@
                                        
                                     </div><!-- End .accordion -->
 
-                                    <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
+                                    <button type="submit" id="submit" class="btn btn-outline-primary-2 btn-order btn-block">
                                         <span class="btn-text">Place Order</span>
                                         <span class="btn-hover-text">Proceed to Checkout</span>
                                     </button>
+                                   <input type="text" name="opcao" id="opcao">
+                                </form>
                                 </div><!-- End .summary -->
                             </aside><!-- End .col-lg-3 -->
                         </div><!-- End .row -->
@@ -507,12 +509,15 @@
 <script>
   $( document ).ready(function() {
     $('#formcartao').css('display', 'none');
+    $('#opcao').css('visibility', 'hidden');
+    
 });
 var x = 0;
 $( "#cartaobutton" ).on( "click", function() {
         if ((x / 2) % 2 == 0 ){
             x++;
-            $('#formcartao').css('display', 'block');                  
+            $('#formcartao').css('display', 'flex');  
+            document.querySelector("#opcao").value = 1                
         }else{
             x--;
             $('#formcartao').css('display', 'none');                       
@@ -521,8 +526,15 @@ $( "#cartaobutton" ).on( "click", function() {
 $( "#boleto" ).on( "click", function() {
     $('#formcartao').css('display', 'none'); 
     x = 0;    
+    document.querySelector("#opcao").value = 2
 
 });
+
+        
+ 
+       
+    
+
 </script>
 </body>
 
