@@ -47,7 +47,9 @@ class CheckoutController extends Controller
             $enderecos->save();
             $endereco2 = DB::table('enderecos')->where('enderecos.email', auth()->user()->email)->get();
         }
-        dd($request->opcao);
+        if($request->opcao == 1){ 
+      
+
         $enviroment = new Enviroment();
         $enviroment->setAPIKEY('F238F433563C4A27BB78AC392ADEB528');
       //  3334CDD348C74B94B1956CAEB05C45BE317CD6C5ACD84B6F9F4A1ACDCB8C8A56
@@ -69,8 +71,7 @@ class CheckoutController extends Controller
 // 4 - Cartão de débito
         $payload->setPaymentMethod("2");
 
-        $CreditCard = new CreditCard("João da Silva", "5484375429225691", "03/2024", "367");
-
+        $CreditCard = new CreditCard($request->cardholderName, $request->cardNumber, $request->cardExpirationDate, $request->securityCode);
 //Objeto de pagamento - para boleto bancário
         $payload->setPaymentObject($CreditCard);
 
@@ -107,79 +108,11 @@ class CheckoutController extends Controller
         $payload->setCustomer($Customer);
 
         $response  = PaymentRequest::CreatePayment($payload);
-       //dd($payload);
+       
         dd($response);
-        return redirect('/minhaconta') ;
-    }
-    public function process_payment(Request $request){
-
+    }else{
         $enviroment = new Enviroment();
         $enviroment->setAPIKEY('F238F433563C4A27BB78AC392ADEB528');
-      //  3334CDD348C74B94B1956CAEB05C45BE317CD6C5ACD84B6F9F4A1ACDCB8C8A56
-//Inicializar método de pagamento
-        $payload  = new Transaction();
-//Ambiente de homologação
-        $payload->setIsSandbox(true);
-//Descrição geral
-        $payload->setApplication("Teste SDK PHP");
-//Nome do vendedor
-        $payload->setVendor("João da Silva");
-//Url de callback
-        $payload->setCallbackUrl("https://callbacks.exemplo.com.br/api/Notify");
-
-//Código da forma de pagamento
-// 1 - Boleto bancário
-// 2 - Cartão de crédito
-// 3 - Criptomoeda
-// 4 - Cartão de débito
-        $payload->setPaymentMethod("2");
-
-        $CreditCard = new CreditCard("João da Silva", "5484375429225691", "03/2024", "367");
-
-//Objeto de pagamento - para boleto bancário
-        $payload->setPaymentObject($CreditCard);
-
-        $Products = array();
-
-        $payloadProduct = new Product();
-        $payloadProduct->setCode(1);
-        $payloadProduct->setDescription("Produto 1");
-        $payloadProduct->setUnitPrice(2.50);
-        $payloadProduct->setQuantity(2);
-
-        array_push($Products, $payloadProduct);
-
-        $payload->setProducts($Products);
-
-//Customer
-        $Customer =  new Customer();
-        $Customer->setName("Teste Cliente");
-        $Customer->setIdentity("01579286000174");
-        $Customer->setEmail("Teste@Teste.com.br");
-        $Customer->setPhone("51999999999");
-
-        $Customer->Address = new Address();
-        $Customer->Address->setZipCode("90620000");
-        $Customer->Address->setStreet("Avenida Princesa Isabel");
-        $Customer->Address->setNumber("828");
-        $Customer->Address->setComplement("Lado B");
-        $Customer->Address->setDistrict("Santana");
-        $Customer->Address->setStateInitials("RS");
-        $Customer->Address->setCityName("Porto Alegre");
-        $Customer->Address->setCountryName("Brasil");
-
-
-        $payload->setCustomer($Customer);
-
-        $response  = PaymentRequest::CreatePayment($payload);
-       //dd($payload);
-        dd($response);
-
-    }
-    public function boleto(Request $request){
-
-        $enviroment = new Enviroment();
-        $enviroment->setAPIKEY('x-api-key');
         
         //Inicializar método de pagamento
         $payload  = new Transaction();
@@ -202,7 +135,7 @@ class CheckoutController extends Controller
         //Informa o objeto de pagamento
         $BankSlip = new BankSlip();
         //Data de vencimento
-        $BankSlip->setDueDate("16/10/2019");
+        $BankSlip->setDueDate("16/10/2022");
         //Instrução
         $BankSlip->setInstruction("Instrução de Exemplo");
         //Multa
@@ -218,30 +151,22 @@ class CheckoutController extends Controller
             "mensagem 1",
             "mensagem 2",
             "mensagem 3"
-        ));
-        
+        ));        
         //Objeto de pagamento - para boleto bancário
-        $payload->setPaymentObject($BankSlip);
-        
-        $Products = array();
-        
+        $payload->setPaymentObject($BankSlip);        
+        $Products = array();        
          $payloadProduct = new Product();
          $payloadProduct->setCode(1);
          $payloadProduct->setDescription("Produto 1");
          $payloadProduct->setUnitPrice(2.50);
-         $payloadProduct->setQuantity(2);
-        
-         array_push($Products, $payloadProduct);
-        
-        $payload->setProducts($Products);
-        
-        //Customer
+         $payloadProduct->setQuantity(2);        
+         array_push($Products, $payloadProduct);        
+        $payload->setProducts($Products);       
         $Customer =  new Customer();
         $Customer->setName("Teste Cliente");
         $Customer->setIdentity("01579286000174");
         $Customer->setEmail("Teste@Teste.com.br");
-        $Customer->setPhone("51999999999");
-        
+        $Customer->setPhone("51999999999");        
         $Customer->Address = new Address();
         $Customer->Address->setZipCode("90620000");
         $Customer->Address->setStreet("Avenida Princesa Isabel");
@@ -250,12 +175,12 @@ class CheckoutController extends Controller
         $Customer->Address->setDistrict("Santana");
         $Customer->Address->setStateInitials("RS");
         $Customer->Address->setCityName("Porto Alegre");
-        $Customer->Address->setCountryName("Brasil");
-        
-        
-        $payload->setCustomer($Customer);
-        
+        $Customer->Address->setCountryName("Brasil");       
+        $payload->setCustomer($Customer);        
         $response  = PaymentRequest::CreatePayment($payload);
-
+        dd($response);
     }
+}
+
+   
 }

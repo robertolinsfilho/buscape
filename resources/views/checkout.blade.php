@@ -221,25 +221,15 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <label>Parcelas</label>
-                                            <select name="issuer"  class="form-control" id="form-checkout__issuer"></select>
+                                            <select name="issuer"  class="form-control" id="form-checkout__issuer">
+                                                <option>1</option>
+
+                                            </select>
                                             </div>
-                                            <div class="col-sm-6">
-                                                <label>Número Cartão</label>
-                                            <select name="identificationType" class="form-control" id="form-checkout__identificationType"></select>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <label>Número Cartão</label>
-                                            <input type="text" class="form-control" name="identificationNumber" id="form-checkout__identificationNumber"/>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <label>Número Cartão</label>
-                                            <select name="installments" class="form-control" id="form-checkout__installments"></select>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <label>Número Cartão</label>
+                                          
                                                 @csrf
-                                            <button type="submit" class="form-control" id="form-checkout__submit">Pagar</button>
-                                            </div>
+                                           
+                                         
                                             </div>
                                            
                                        
@@ -517,14 +507,33 @@ $( "#cartaobutton" ).on( "click", function() {
         if ((x / 2) % 2 == 0 ){
             x++;
             $('#formcartao').css('display', 'flex');  
-            document.querySelector("#opcao").value = 1                
+            document.querySelector("#opcao").value = 1    
+            $('#form-checkout__cardNumber').prop('required',true);    
+            $('#form-checkout__cardExpirationDate').prop('required',true);
+            $('#form-checkout__cardholderName').prop('required',true);
+            $('#form-checkout__cardholderEmail').prop('required',true);
+            $('#form-checkout__securityCode').prop('required',true);
+            $('#form-checkout__issuer').prop('required',true);
+              
         }else{
             x--;
-            $('#formcartao').css('display', 'none');                       
+            $('#formcartao').css('display', 'none');
+            $('#form-checkout__cardNumber').prop('required',false);    
+            $('#form-checkout__cardExpirationDate').prop('required',false);
+            $('#form-checkout__cardholderName').prop('required',false);
+            $('#form-checkout__cardholderEmail').prop('required',false);
+            $('#form-checkout__securityCode').prop('required',false);
+            $('#form-checkout__issuer').prop('required',false);                       
         }   
 });
 $( "#boleto" ).on( "click", function() {
     $('#formcartao').css('display', 'none'); 
+    $('#form-checkout__cardNumber').prop('required',false);    
+            $('#form-checkout__cardExpirationDate').prop('required',false);
+            $('#form-checkout__cardholderName').prop('required',false);
+            $('#form-checkout__cardholderEmail').prop('required',false);
+            $('#form-checkout__securityCode').prop('required',false);
+            $('#form-checkout__issuer').prop('required',false); 
     x = 0;    
     document.querySelector("#opcao").value = 2
 
